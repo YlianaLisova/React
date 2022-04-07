@@ -1,0 +1,27 @@
+.users_posts {
+    display: flex;
+}
+
+.users {
+    height: 354px;
+    width: 600px;
+    margin-right: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: pink;
+}
+
+.posts {
+    width: 500px;
+    height: 3667px;
+    margin-bottom: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: moccasin;
+}
+
+.comments {
+    border: 1px solid black;
+    border-radius: 10px;
+    background: darksalmon;
+}
