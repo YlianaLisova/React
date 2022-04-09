@@ -1,12 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div>
+import {Users} from "./components";
 
-    </div>
-  );
+export function App() {
+    return (
+        <div>
+            <Users/>
+        </div>
+    );
 }
 
-export default App;
