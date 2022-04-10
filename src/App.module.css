@@ -1,0 +1,61 @@
+.usersAndInfo{
+    display: flex;
+}
+
+.userInfo {
+    margin-left: 50px;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding-top: 50px;
+    background: pink;
+    padding-left: 3px;
+}
+
+.userInfo input {
+    margin-left: 60px;
+    background: rgb(242, 203, 221);
+    border-radius: 4px;
+    margin-top: 15px;
+    cursor: pointer;
+    box-shadow: 5px 5px #888888;
+}
+
+.userInfo input:hover{
+    background: rgb(201, 141, 167);
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em transparent;
+}
+
+.users{
+    border: 1px solid black;
+    border-radius: 15px;
+    background: #ffbef7;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.users input {
+    margin-left: 10px;
+    background: rgb(242, 203, 221);
+    border-radius: 4px;
+    margin-top: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px #888888;
+    margin-right: 5px;
+    width: 55px;
+}
+
+.users input:hover{
+    background: rgb(208, 153, 173);
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em transparent;
+}
+
+.posts {
+    border: 1px solid black;
+    border-radius: 15px;
+    background: #a6e7ce;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
