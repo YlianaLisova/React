@@ -12,7 +12,7 @@ export function App() {
         <div>
             <div>
                 <div>
-                    <Users setUser={setUser}/>
+                    <Users setUser={setUser} setUserIdForPosts={setUserIdForPosts}/>
                     {user && <UserInfo user={user} setUserIdForPosts={setUserIdForPosts}/>}
                 </div>
                 {userIdForPosts && <Posts userIdForPosts={userIdForPosts}/>}
