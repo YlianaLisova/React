@@ -1,21 +1,24 @@
 import React, {useEffect, useState} from 'react';
-import {userService} from "../../services/user.service";
-import {User} from "../../components";
 import {Outlet} from "react-router-dom";
+
+import css from './Users.module.css';
+import {userService} from "../../services/user.service";
+import {Loading, User} from "../../components";
 
 export const UsersPage = () => {
     const [users, setUsers] = useState(null);
 
-    useEffect(()=> {
-        userService.getAll().then(({data})=> setUsers(data))
+    useEffect(() => {
+        userService.getAll().then(({data}) => setUsers(data))
     })
     return (
-        <div>
-            <div style={{display:"flex", justifyContent:"space-between"}}>
-                <div>{users && users.map(user => <User key={user.id} user={user}/>)}</div>
-                <div><Outlet/></div>
-            </div>
-        </div>
+        <div className={css.wrapper}>
+            <div className={css.users}>
+                {users ? users.map(user => <User key={user.id} user={user}/>) : <Loading/>}
+                </div>
+                    <Outlet/>
+                </div>
+
     );
 };
 
