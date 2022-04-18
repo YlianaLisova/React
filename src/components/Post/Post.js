@@ -7,7 +7,7 @@ export const Post = ({post, flag}) => {
         <div>
             {id} - {title}
             {
-                flag && <Button to={`${id}`} state={post}>get Details</Button>
+                flag && <Button to={id.toString()} state={post}>get Details</Button>
             }
         </div>
     );
