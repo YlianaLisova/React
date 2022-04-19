@@ -10,7 +10,7 @@ export const UsersPage = () => {
 
     useEffect(() => {
         userService.getAll().then(({data}) => setUsers(data))
-    })
+    },[])
     return (
         <div className={css.wrapper}>
             <div className={css.users}>
