@@ -8,4 +8,3 @@ export const Button = ({to,state,children, ...arg}) => {
         </Link>
     );
 }
-
