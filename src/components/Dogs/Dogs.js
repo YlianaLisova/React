@@ -7,8 +7,9 @@ export const Dogs = () => {
     const [state, dispatch] = useDogReducer();
 
     const addDog = () => {
-      const newDog = dogRef.current.value;
-      dispatch({type: ADD, payload:{dog: newDog}})
+        const newDog = dogRef.current.value;
+        dispatch({type: ADD, payload: {dog: newDog}})
+        dogRef.current.value = '';
     }
     return (
         <div>
