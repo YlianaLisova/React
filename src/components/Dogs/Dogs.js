@@ -4,21 +4,20 @@ import {Dog} from "../Dog/Dog";
 
 export const Dogs = () => {
     const dogRef = useRef();
-    const [state,dispatch] = useDogReducer();
+    const [state, dispatch] = useDogReducer();
+
     const addDog = () => {
       const newDog = dogRef.current.value;
-      dispatch({type:ADD, payload: {dog: newDog}})
-        dogRef.current.value= '';
-
+      dispatch({type: ADD, payload:{dog: newDog}})
     }
-
     return (
         <div>
             <input type="text" ref={dogRef} placeholder={'Dog name'}/>
             <button onClick={addDog}>ADD</button>
             <hr/>
-            {state.map(dog=> <Dog key={dog.id} dog={dog} dispatch={dispatch}/>)}
+            {state.map(dog => <Dog key={dog.id} dog={dog} dispatch={dispatch}/>)}
         </div>
     );
 };
+
 
