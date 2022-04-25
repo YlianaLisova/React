@@ -1,12 +1,12 @@
 import './App.css';
-import {Cats} from "./components";
+import {Cats, Dogs} from "./components";
 
 function App() {
     return (
-        <div>
-            <div>
-                <div><Cats/></div>
-            </div>
+        <div style={{display:'flex'}}>
+
+            <div><Cats/></div>
+            <div><Dogs/></div>
         </div>
     );
 }
