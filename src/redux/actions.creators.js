@@ -1,7 +1,7 @@
 import {LOAD_POSTS} from "./action.types";
 import {loadUsersData} from "./action";
 
-export const loadUsers = (users) => async (dispatch) =>{
+export const loadUsers = () => async (dispatch) =>{
     const users = await fetch('https://jsonplaceholder.typicode.com/users')
         .then(value => value.json());
     dispatch (loadUsersData(users))
