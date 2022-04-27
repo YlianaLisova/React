@@ -1,21 +1,25 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {loadPosts} from "../redux/actions.creators";
+import {Post} from "../Post/Post";
+import {loadPosts} from "../../redux/actions.creators";
 
 export const Posts = () => {
-    const postsDefaultState = useSelector(state => state.postsState);
+    const postRootState = useSelector(state => state.postState);
     const dispatch = useDispatch();
-    useEffect(() => {
+
+    useEffect(()=> {
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(value => value.json())
             .then(posts => {
                 dispatch(loadPosts(posts))
-            });
-    }, [])
+            })
+    },[dispatch])
 
     return (
         <div>
-            {postsDefaultState.map(post=> <div key={post.id}>{post.id} - {post.title}</div>)}
+            {
+                postRootState.map(post=> <Post key={post.id} post={post}/>)
+            }
         </div>
     );
 };

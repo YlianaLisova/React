@@ -1,12 +1,10 @@
 import {LOAD_POSTS} from "./action.types";
 
-export function reducerPosts (state = [], action) {
+export const postReducer = (state = [], action) => {
     switch (action.type) {
         case LOAD_POSTS:
-            return [...action.payload];
-
+            return [...action.payload]
         default:
-            return state;
+            return state
     }
-
 }

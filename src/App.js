@@ -1,15 +1,15 @@
 import './App.css';
-import {Users} from "./components/Users";
-import {Posts} from "./components/Posts";
+import {Users} from "./components/Users/Users";
+import {Posts} from "./components/Posts/Posts";
 
 function App() {
 
 
     return (
         <div>
-            <Users/>
+            <div style={{display:'flex', justifyContent:'center', color:'seagreen'}}><Users/></div>
             <hr/>
-            <Posts/>
+            <div style={{display:'flex', justifyContent: 'center', color:'saddlebrown'}}><Posts/></div>
         </div>
     );
 }

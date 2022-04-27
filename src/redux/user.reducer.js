@@ -1,12 +1,10 @@
 import {LOAD_USERS} from "./action.types";
 
-export function reducerUsers(state = [], action) {
+export const userReducer = (state = [], action) => {
     switch (action.type) {
         case LOAD_USERS:
-            return [...action.payload];
-
+            return [...action.payload]
         default:
-            return state;
+            return state
     }
-
 }

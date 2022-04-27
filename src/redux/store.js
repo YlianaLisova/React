@@ -1,9 +1,6 @@
-import {applyMiddleware, combineReducers, createStore} from "redux";
-import {reducerUsers} from "./user.reducer";
-import {reducerPosts} from "./post.reducer";
-import thunk from "redux-thunk";
+import {combineReducers, createStore} from "redux";
+import {userReducer} from "./user.reducer";
+import {postReducer} from "./post.reducer";
 
-const reducers = combineReducers({postsState: reducerPosts, usersState: reducerUsers});
-
-
-export const store = createStore(reducers, applyMiddleware(thunk));
+const reducers = combineReducers({userState: userReducer, postState: postReducer});
+export const store = createStore(reducers)
