@@ -1,20 +1,19 @@
-import React from 'react';
-import {useRef} from "react";
+import React, {useRef} from 'react';
 import {useDispatch} from "react-redux";
-
-import {userActions} from "../redux/slices/user.slice";
+import {userAction} from "../redux";
 
 export const Form = () => {
     const nameInput = useRef();
     const dispatch = useDispatch();
     const addUser = () => {
-        dispatch(userActions.add({user: nameInput.current.value}))
-        nameInput.current.value = ''
+      dispatch(userAction.add({user: nameInput.current.value}));
+      nameInput.current.value=''
     }
     return (
         <div>
-            <input type="text" ref={nameInput}/>
+            <input type="text" ref={nameInput} placeholder={'User name'}/>
             <button onClick={addUser}>ADD</button>
         </div>
     );
 };
+
