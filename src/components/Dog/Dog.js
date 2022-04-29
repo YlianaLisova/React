@@ -8,10 +8,14 @@ export const Dog = ({dog}) => {
     const deleteById = () => {
       dispatch(dogAction.deleteDog({id}))
     }
+    const setForUpdate = () => {
+      dispatch(dogAction.setDog({dog}))
+    }
     return (
         <div>
             {id} - {name}
             <button onClick={deleteById}>delete</button>
+            <button onClick={setForUpdate}>update</button>
         </div>
     );
 };
