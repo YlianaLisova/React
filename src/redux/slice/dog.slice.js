@@ -17,16 +17,15 @@ const dogSlice = createSlice({
             const index= state.dogs.findIndex(dog => dog.id === action.payload.id);
             state.dogs.splice(index,1)
         },
-        setDogForUpdate: (state, action) => {
+        setDogForUpdate:(state, action) => {
             state.dogForUpdate = action.payload.dog
         },
-        updateDogById:(state, action) => {
-            const {id, newName} = action.payload;
-            const index = state.dogs.findIndex(dog=> dog.id === id)
-            state.dogs[index].name = newName
+        updateDogById: (state, action) => {
+            const {id, newDogName} = action.payload;
+            const index = state.dogs.findIndex(dog => dog.id === id);
+            state.dogs[index].name = newDogName
             state.dogForUpdate = false
         }
-
     }
 });
 const {reducer: dogReducer,actions: {add,deleteDogById,setDogForUpdate,updateDogById}} = dogSlice;

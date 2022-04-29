@@ -15,7 +15,7 @@ export const Dog = ({dog}) => {
         <div>
             {id} - {name}
             <button onClick={deleteDog}>Delete</button>
-            <button onClick={setDog}>update</button>
+            <button onClick={setDog}>Update</button>
         </div>
     );
 };

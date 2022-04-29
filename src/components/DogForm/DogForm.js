@@ -10,26 +10,26 @@ export const DogForm = () => {
       dispatch(dogAction.add({dog: dogInput.current.value}));
       dogInput.current.value = ''
     }
-    useEffect(() => {
+    useEffect(()=> {
         if (dogForUpdate) {
             dogInput.current.value = dogForUpdate.name
         }
-    }, [dogForUpdate]);
+    },[dogForUpdate]);
     const updateDog = () => {
-        if (dogForUpdate) {
-        const newName = dogInput.current.value
-        dispatch(dogAction.updateDogById({id: dogForUpdate.id, newName}))
-        } else {
-            const newName = dogInput.current.value;
-            dispatch(dogAction.add({cat: newName}))
-        }
-        dogInput.current.value = '';
+      if (dogForUpdate) {
+          const newName = dogInput.current.value;
+          dispatch(dogAction.updateDogById({id: dogForUpdate.id, newDogName: newName}))
+      } else {
+          const newName = dogInput.current.value;
+          dispatch(dogAction.add({dog:newName}))
+      }
+      dogInput.current.value = '';
     }
     return (
         <div>
             <input type="text" ref={dogInput} placeholder={'Dog name'}/>
             <button onClick={addDog}>Add</button>
-            <button onClick={updateDog}>Save update</button>
+            <button onClick={updateDog}>Update</button>
         </div>
     );
 };
