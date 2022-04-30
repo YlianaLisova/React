@@ -1,16 +1,29 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
 import {carActions} from "../../redux";
 import css from './CarForm.module.css'
 
 export const CarForm = () => {
+    const {carForUpdate} = useSelector(state => state.car);
     const {formErrors} = useSelector(state => state.car);
-    const {reset,register,handleSubmit} = useForm();
+    const {reset,register,handleSubmit,setValue} = useForm();
     const dispatch = useDispatch();
     const submit = async (newCar) => {
         await dispatch(carActions.create({car: newCar}))
         reset()
+    }
+    useEffect(()=> {
+        if (carForUpdate){
+           const {model,price,year} = carForUpdate;
+           setValue('model', model);
+           setValue('price', price);
+           setValue('year', year);
+
+        }
+    },[carForUpdate,setValue])
+    const saveUpdate = async () => {
+
     }
     return (
         <form className={css.form} onSubmit={handleSubmit(submit)}>
@@ -21,6 +34,7 @@ export const CarForm = () => {
             <div><label>Year: <input className={css.marg2} type="text" {...register('year')}/></label></div>
             {formErrors.year && <span>{formErrors.year[0]}</span>}
             <button className={css.btn}>Save</button>
+            <button className={css.btn} onClick={saveUpdate}>updateCar</button>
         </form>
     );
 };
