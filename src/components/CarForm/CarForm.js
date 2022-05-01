@@ -10,7 +10,12 @@ export const CarForm = () => {
     const {reset,register,handleSubmit,setValue} = useForm();
     const dispatch = useDispatch();
     const submit = async (newCar) => {
+        if (carForUpdate) {
+            await dispatch(carActions.updateById({id:carForUpdate.id, car: newCar}))
+        } else {
         await dispatch(carActions.create({car: newCar}))
+
+        }
         reset()
     }
     useEffect(()=> {
@@ -21,10 +26,8 @@ export const CarForm = () => {
            setValue('year', year);
 
         }
-    },[carForUpdate,setValue])
-    const saveUpdate = async () => {
+    },[carForUpdate])
 
-    }
     return (
         <form className={css.form} onSubmit={handleSubmit(submit)}>
             <div><label>Model:<input type="text" {...register('model')}/></label></div>
@@ -34,7 +37,7 @@ export const CarForm = () => {
             <div><label>Year: <input className={css.marg2} type="text" {...register('year')}/></label></div>
             {formErrors.year && <span>{formErrors.year[0]}</span>}
             <button className={css.btn}>Save</button>
-            <button className={css.btn} onClick={saveUpdate}>updateCar</button>
+            <button className={css.btn}>updateCar</button>
         </form>
     );
 };

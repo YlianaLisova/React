@@ -8,6 +8,9 @@ export const Car = ({car}) => {
     const deleteCar = async () => {
         await dispatch(carActions.deleteCar({id}))
     }
+    const setCar = () => {
+      dispatch(carActions.setCarForUpdate({car}))
+    }
 
     return (
         <div>
@@ -16,7 +19,7 @@ export const Car = ({car}) => {
             <div>Price: {price}</div>
             <div>Year: {year}</div>
             <button onClick={deleteCar}>Delete</button>
-            <button>update</button>
+            <button onClick={setCar}>update</button>
             <hr/>
         </div>
     );
