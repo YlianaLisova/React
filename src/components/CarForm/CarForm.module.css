@@ -1,0 +1,19 @@
+
+.form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.marg1{
+    margin-left: 8px;
+}
+
+.marg2{
+    margin-left: 11px;
+}
+
+.btn {
+    margin-left: 3px;
+    width: 124px;
+}
