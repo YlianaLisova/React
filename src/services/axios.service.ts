@@ -1,5 +1,7 @@
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
 
 import {baseURL} from "../constants";
 
 export let axiosService = axios.create({baseURL});
+
+export type Res<T> = Promise<AxiosResponse<T>>
