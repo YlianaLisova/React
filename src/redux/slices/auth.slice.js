@@ -19,6 +19,9 @@ const authSlice = createSlice({
     reducers: {
         setAuth: state => {
             state.isAuth = true
+        },
+        setError:state => {
+            state.loginError = false
         }
     },
     extraReducers: (builder) => {
@@ -37,10 +40,11 @@ const authSlice = createSlice({
     }
 });
 
-const {reducer: authReducer, actions: {setAuth}} = authSlice;
+const {reducer: authReducer, actions: {setAuth,setError}} = authSlice;
 const authActions = {
     login,
-    setAuth
+    setAuth,
+    setError
 }
 export {
     authReducer,

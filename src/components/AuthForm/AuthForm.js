@@ -9,6 +9,8 @@ export const AuthForm = () => {
     const {reset, register, handleSubmit} = useForm();
     const {pathname, state} = useLocation();
     const [isLogin, setIsLogin] = useState(null);
+    const {loginError} = useSelector(state1 => state1.auth);
+    const [errors, setErrors] = useState(null);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -18,15 +20,15 @@ export const AuthForm = () => {
     const submit = async (user) => {
         try {
             if (!isLogin) {
-              await  userService.create(user)
+                await userService.create(user);
                 navigate('/login')
 
             } else {
                 await dispatch(authActions.login({user}))
-                navigate(state.pathname, {replace:true})
+                navigate(state?.pathname || '/', {replace: true})
             }
         } catch (e) {
-
+            setErrors(e.response.data)
         }
     }
 
@@ -37,8 +39,9 @@ export const AuthForm = () => {
             <input type="text" placeholder={'password'} {...register('password')}/>
             <button>{isLogin ? 'login' : 'register'}</button>
             <div>
-
-
+                <div>{errors?.username && <span>{errors.username[0]}</span>}</div>
+                <div>{errors?.password && <span>{errors.password[0]}</span>}</div>
+                {loginError && <span>Wrong username or password</span>}
             </div>
         </form>
     );
