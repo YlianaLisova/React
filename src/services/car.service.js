@@ -3,5 +3,6 @@ import {urls} from "../constants";
 
 export const carService = {
     getAll:()=> axiosService.get(urls.cars),
-    create:(car) => axiosService.post(urls.cars, car)
+    create:(car) => axiosService.post(urls.cars, car),
+    deleteById:(id) => axiosService.delete(`${urls.cars}/${id}`)
 }
