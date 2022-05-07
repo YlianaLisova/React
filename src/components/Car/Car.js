@@ -2,11 +2,15 @@ import React from 'react';
 import {useDispatch} from "react-redux";
 import {carActions} from "../../redux";
 
-export const Car = ({car:{id,model,price,year}}) => {
+export const Car = ({car,car:{id,model,price,year}}) => {
     const dispatch = useDispatch();
 
     const deleteCar = () => {
       dispatch(carActions.deleteCarById({id}))
+    }
+
+    const setCar = () => {
+      dispatch(carActions.setCarForUpdate({car}))
     }
 
     return (
@@ -16,7 +20,7 @@ export const Car = ({car:{id,model,price,year}}) => {
             <div>Price: {price}</div>
             <div>Year: {year}</div>
             <button onClick={deleteCar}>delete</button>
-            <button>update</button>
+            <button onClick={setCar}>update</button>
             <hr/>
         </div>
     );
