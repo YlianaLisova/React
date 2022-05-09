@@ -9,18 +9,18 @@ const todoSlice = createSlice({
         name: 'todoSlice',
         initialState,
         reducers: {
-            add: (state, action) => {
+            addTodo: (state, action) => {
                 const {todo} = action.payload;
                 const newTodo = {id: new Date().getTime(), title: todo}
-                state.todoList.push(newTodo)
+                state.todoList.push(newTodo);
             }
         }
     }
 );
 
-const {reducer: todoReducer, actions: {add}} = todoSlice;
+const {reducer: todoReducer, actions: {addTodo}} = todoSlice;
 export default todoReducer
 
 export const todoAction = {
-    add
+    addTodo
 }

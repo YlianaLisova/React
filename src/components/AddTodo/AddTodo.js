@@ -5,16 +5,16 @@ import {todoAction} from "../../redux";
 
 export const AddTodo = () => {
     const dispatch = useDispatch();
-    const input = useRef();
+    const inputTodo = useRef();
 
     const addToDo = () => {
-        dispatch(todoAction.add({todo: input.current.value}));
-        input.current.value = ''
+        dispatch(todoAction.addTodo({todo: inputTodo.current.value}));
+        inputTodo.current.value = ''
     }
 
     return (
         <div>
-            <input type="text" ref={input} placeholder={'Write your todo'}/>
+            <input type="text" ref={inputTodo} placeholder={'Write your todo'}/>
             <button onClick={addToDo}>Add</button>
         </div>
     );
