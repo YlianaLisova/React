@@ -15,7 +15,7 @@ export const OneTodo = ({todo}) => {
         <div>
             <div style={{border: '1px solid black', borderRadius: '5px', background: 'lightcyan', display:'flex', justifyContent:'space-between'}}>
                 <div><input style={{cursor: 'pointer'}} type="checkbox"/>
-                    {id}-{title} { }</div>
+                    {id}-{title} {}</div>
                 <div>
                     <button onClick={deleteTodo} type="button"><img
                         style={{height: '13px', width: '12px', cursor: 'pointer'}}
