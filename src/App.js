@@ -1,15 +1,12 @@
-import './App.css';
-import {AddTodo, Header, TodoList} from "./components";
+import React from 'react';
+import {AllTodos, Todos} from "./components";
 
-function App() {
-
+export const App = () => {
     return (
-        <div>
-            <Header/>
-            <AddTodo/>
-            <TodoList/>
+        <div style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
+            <Todos/>
+            <AllTodos/>
         </div>
     );
-}
+};
 
-export default App;
